@@ -1,0 +1,38 @@
+package org.likelion.likelionassignmentcrud.developer.domain;
+
+import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.likelion.likelionassignmentcrud.game.domain.Game;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class Developer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "developer_id")
+    private Long developerId;
+
+    private String name;
+    private String country;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    @OneToMany(mappedBy = "developer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Game> games = new ArrayList<>();
+
+    @Builder
+    private Developer(String name, String country, Status status) {
+        this.name = name;
+        this.country = country;
+        this.status = status;
+    }
+}

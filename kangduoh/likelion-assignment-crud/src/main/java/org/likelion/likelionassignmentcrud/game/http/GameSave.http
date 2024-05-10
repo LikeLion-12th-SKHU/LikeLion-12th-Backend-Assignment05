@@ -1,0 +1,9 @@
+POST http://localhost:8080/game/save
+Content-Type: application/json
+
+{
+  "developerId": 1,
+  "name": "Valorant",
+  "genre": "action",
+  "platform": "PC"
+}
