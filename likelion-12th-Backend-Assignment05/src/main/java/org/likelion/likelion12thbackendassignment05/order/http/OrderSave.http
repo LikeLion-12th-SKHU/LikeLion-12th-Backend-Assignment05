@@ -1,0 +1,8 @@
+POST http://localhost:8080/order/save
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "costName": "조규림",
+  "location": "부천"
+}
