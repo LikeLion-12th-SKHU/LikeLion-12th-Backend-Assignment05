@@ -49,8 +49,8 @@ public class CompanyRecruitmentService {
 	}
 
 	@Transactional
-	public RecruitmentUpdateResponseDto updateRecruitmentNotice(RecruitmentUpdateRequestDto updateRequestDto) {
-		CompanyRecruitment recruitmentNotice = companyRecruitmentRepository.findById(updateRequestDto.recruitmentId())
+	public RecruitmentUpdateResponseDto updateRecruitmentNotice(Long id,RecruitmentUpdateRequestDto updateRequestDto) {
+		CompanyRecruitment recruitmentNotice = companyRecruitmentRepository.findById(id)
 			.orElseThrow();
 		return RecruitmentUpdateResponseDto.from(
 			companyRecruitmentRepository.save(nullcheckOfUpdateRequestDto(recruitmentNotice, updateRequestDto)));

@@ -37,9 +37,9 @@ public class RecruitmentController {
 		return new ResponseEntity<>(companyRecruitmentService.apply(applyRequestDto),HttpStatus.CREATED);
 	}
 
-	@PatchMapping
-	public ResponseEntity<RecruitmentUpdateResponseDto> updateRecruitment(@RequestBody RecruitmentUpdateRequestDto updateRequestDto){
-		return new ResponseEntity<>(companyRecruitmentService.updateRecruitmentNotice(updateRequestDto), HttpStatus.OK);
+	@PatchMapping("/{recruitmentId}")
+	public ResponseEntity<RecruitmentUpdateResponseDto> updateRecruitment(@PathVariable(value = "recruitmentId") Long id, @RequestBody RecruitmentUpdateRequestDto updateRequestDto){
+		return new ResponseEntity<>(companyRecruitmentService.updateRecruitmentNotice(id, updateRequestDto), HttpStatus.OK);
 	}
 
 	@GetMapping

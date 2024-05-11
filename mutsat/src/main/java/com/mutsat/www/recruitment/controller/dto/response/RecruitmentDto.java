@@ -8,6 +8,7 @@ import lombok.Builder;
 public record RecruitmentDto(long id, String companyName, String country, String region, String position, long recruitmentCompensation, String skills) {
 	public static RecruitmentDto from(CompanyRecruitment companyRecruitment){
 		return RecruitmentDto.builder()
+			.id(companyRecruitment.getId())
 			.companyName(companyRecruitment.getCompany().getCompanyName())
 			.country(companyRecruitment.getCompany().getCountry())
 			.region(companyRecruitment.getCompany().getRegion())
