@@ -25,7 +25,7 @@ public class DeveloperService {
         Developer developer = Developer.builder()
                 .name(developerSaveReqDto.name())
                 .country(developerSaveReqDto.country())
-                .status(developerSaveReqDto.status())
+                .establishedDate(developerSaveReqDto.establishedDate())
                 .build();
 
         developerRepository.save(developer);

@@ -2,7 +2,7 @@ POST http://localhost:8080/developer/save
 Content-Type: application/json
 
 {
-  "name": "Pixel Pioneers",
-  "country": "England",
-  "status": "INACTIVE"
+  "name": "Nexon",
+  "country": "Korea",
+  "establishedDate": "2002. 12. 18"
 }

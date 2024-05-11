@@ -22,17 +22,15 @@ public class Developer {
 
     private String name;
     private String country;
-
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    private String establishedDate;
 
     @OneToMany(mappedBy = "developer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Game> games = new ArrayList<>();
 
     @Builder
-    private Developer(String name, String country, Status status) {
+    private Developer(String name, String country, String establishedDate) {
         this.name = name;
         this.country = country;
-        this.status = status;
+        this.establishedDate = establishedDate;
     }
 }
