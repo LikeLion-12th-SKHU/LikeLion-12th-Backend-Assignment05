@@ -1,5 +1,8 @@
 package com.mutsat.www.recruitment.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.mutsat.www.company.domain.Company;
 import com.mutsat.www.member.domain.Skills;
 
@@ -11,6 +14,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,6 +30,9 @@ public class CompanyRecruitment {
 
 	@ManyToOne
 	private Company company;
+
+	@OneToMany(mappedBy = "companyRecruitment")
+	private List<RecruitmentStatus> recruitmentStatusList = new ArrayList<>();
 
 	private String position;
 
