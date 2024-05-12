@@ -1,5 +1,7 @@
 package org.likelion.likelionassignmentcrud.order.application;
 
+import org.likelion.likelionassignmentcrud.member.api.dto.response.MemberInfoResDto;
+import org.likelion.likelionassignmentcrud.member.api.dto.response.MemberListResDto;
 import org.likelion.likelionassignmentcrud.member.domain.Member;
 import org.likelion.likelionassignmentcrud.member.domain.repository.MemberRepository;
 import org.likelion.likelionassignmentcrud.order.api.dto.request.OrderSaveReqDto;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)

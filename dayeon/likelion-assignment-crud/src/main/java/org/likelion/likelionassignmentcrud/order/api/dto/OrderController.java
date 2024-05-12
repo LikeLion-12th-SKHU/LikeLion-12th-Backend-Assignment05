@@ -1,5 +1,6 @@
 package org.likelion.likelionassignmentcrud.order.api.dto;
 
+import org.likelion.likelionassignmentcrud.member.api.dto.response.MemberListResDto;
 import org.likelion.likelionassignmentcrud.order.api.dto.request.OrderSaveReqDto;
 import org.likelion.likelionassignmentcrud.order.api.dto.response.OrderListResDto;
 import org.likelion.likelionassignmentcrud.order.application.OrderService;
@@ -8,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/orders")
 public class OrderController {
     private final OrderService orderService;
 

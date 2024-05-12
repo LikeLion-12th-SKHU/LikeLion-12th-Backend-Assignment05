@@ -9,7 +9,7 @@ import org.likelion.likelionassignmentcrud.member.domain.Member;
 
 @Entity
 @Getter
-@Table(name = "ORDER")
+@Table(name = "ORDERS")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
 
