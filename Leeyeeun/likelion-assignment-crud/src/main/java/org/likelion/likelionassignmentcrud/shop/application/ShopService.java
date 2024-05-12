@@ -40,7 +40,7 @@ public class ShopService {
     // 작성자에 따른 게시물 조회
     public ShopListResDto shopFindMember(Long customerId) {
         Customer customer = customerRepository.findById(customerId)
-                .orElseThrow(null);
+                .orElseThrow(IllegalArgumentException::new);
 
         List<Shop> shops = shopRepository.findByCustomer(customer);
         List<ShopInfoResDto> shopInfoResDtoList = shops.stream()

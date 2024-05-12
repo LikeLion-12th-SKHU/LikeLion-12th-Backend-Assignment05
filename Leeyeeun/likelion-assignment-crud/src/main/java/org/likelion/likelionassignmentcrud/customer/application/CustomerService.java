@@ -41,4 +41,11 @@ public class CustomerService {
         return CustomerListResDto.from(customerInfoResDtoList);
     }
 
+    public CustomerInfoResDto customerFindOne(Long customerId) {
+        Customer customer = customerRepository.findById(customerId).orElseThrow(IllegalArgumentException::new);
+
+        return CustomerInfoResDto.from(customer);
+    }
+
+
 }

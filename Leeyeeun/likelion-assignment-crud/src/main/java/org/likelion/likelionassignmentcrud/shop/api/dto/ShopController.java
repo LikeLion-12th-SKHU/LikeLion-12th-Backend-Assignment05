@@ -21,7 +21,7 @@ public class ShopController {
     }
 
     @GetMapping("/{shopId}")
-    public ResponseEntity<ShopListResDto> myShopFindAll(@PathVariable("customerId") Long customerId) {
+    public ResponseEntity<ShopListResDto> myShopFindAll(@PathVariable("shopId") Long customerId) {
         ShopListResDto shopListResDto = shopService.shopFindMember(customerId);
         return new ResponseEntity<>(shopListResDto, HttpStatus.OK);
     }
