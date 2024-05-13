@@ -1,7 +1,7 @@
 package org.likelion.likelionassignmentcrud.order.application;
 
-import org.likelion.likelionassignmentcrud.consumer.api.domain.Consumer;
-import org.likelion.likelionassignmentcrud.consumer.api.domain.repository.ConsumerRepository;
+import org.likelion.likelionassignmentcrud.consumer.domain.Consumer;
+import org.likelion.likelionassignmentcrud.consumer.domain.repository.ConsumerRepository;
 import org.likelion.likelionassignmentcrud.order.api.dto.request.OrderSaveReqDto;
 import org.likelion.likelionassignmentcrud.order.api.dto.response.OrderInfoResDto;
 import org.likelion.likelionassignmentcrud.order.api.dto.response.OrderListResDto;
@@ -42,7 +42,7 @@ public class OrderService {
     public OrderListResDto orderFindConsumer(Long consumerId) {
         Consumer consumer = consumerRepository.findById(consumerId).orElseThrow(IllegalArgumentException::new);
 
-        List<Order> orders = orderRepository.findByOrder(order);
+        List<Order> orders = orderRepository.findByConsumer(consumer);
         List<OrderInfoResDto> orderInfoResDtoList = orders.stream()
                 .map(OrderInfoResDto::from)
                 .toList();

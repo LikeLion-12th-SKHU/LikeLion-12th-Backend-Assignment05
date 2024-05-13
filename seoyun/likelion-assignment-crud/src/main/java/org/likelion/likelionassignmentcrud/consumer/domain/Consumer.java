@@ -1,4 +1,4 @@
-package org.likelion.likelionassignmentcrud.consumer.api.domain;
+package org.likelion.likelionassignmentcrud.consumer.domain;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

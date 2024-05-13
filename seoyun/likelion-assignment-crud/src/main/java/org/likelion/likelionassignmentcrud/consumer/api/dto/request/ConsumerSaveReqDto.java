@@ -1,6 +1,6 @@
 package org.likelion.likelionassignmentcrud.consumer.api.dto.request;
 
-import org.likelion.likelionassignmentcrud.consumer.api.domain.Part;
+import org.likelion.likelionassignmentcrud.consumer.domain.Part;
 
 public record ConsumerSaveReqDto(
         String name,

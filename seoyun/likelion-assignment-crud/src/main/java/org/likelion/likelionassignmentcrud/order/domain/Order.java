@@ -13,7 +13,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.likelion.likelionassignmentcrud.consumer.api.domain.Consumer;
+import org.likelion.likelionassignmentcrud.consumer.domain.Consumer;
 
 @Entity
 @Getter

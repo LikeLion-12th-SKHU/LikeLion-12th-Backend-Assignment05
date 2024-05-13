@@ -1,6 +1,6 @@
 package org.likelion.likelionassignmentcrud.order.domain.repository;
 
-import org.likelion.likelionassignmentcrud.consumer.api.domain.Consumer;
+import org.likelion.likelionassignmentcrud.consumer.domain.Consumer;
 import org.likelion.likelionassignmentcrud.order.domain.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 

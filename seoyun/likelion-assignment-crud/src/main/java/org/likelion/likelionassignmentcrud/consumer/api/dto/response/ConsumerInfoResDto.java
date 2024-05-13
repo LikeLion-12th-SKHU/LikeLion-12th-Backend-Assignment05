@@ -1,8 +1,8 @@
 package org.likelion.likelionassignmentcrud.consumer.api.dto.response;
 
 import lombok.Builder;
-import org.likelion.likelionassignmentcrud.consumer.api.domain.Consumer;
-import org.likelion.likelionassignmentcrud.consumer.api.domain.Part;
+import org.likelion.likelionassignmentcrud.consumer.domain.Consumer;
+import org.likelion.likelionassignmentcrud.consumer.domain.Part;
 
 @Builder
 public record ConsumerInfoResDto(

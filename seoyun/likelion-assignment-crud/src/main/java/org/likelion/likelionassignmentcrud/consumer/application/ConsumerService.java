@@ -1,8 +1,8 @@
-package org.likelion.likelionassignmentcrud.consumer.api.application;
+package org.likelion.likelionassignmentcrud.consumer.application;
 
-import jakarta.transaction.Transactional;
-import org.likelion.likelionassignmentcrud.consumer.api.domain.Consumer;
-import org.likelion.likelionassignmentcrud.consumer.api.domain.repository.ConsumerRepository;
+import org.springframework.transaction.annotation.Transactional;
+import org.likelion.likelionassignmentcrud.consumer.domain.Consumer;
+import org.likelion.likelionassignmentcrud.consumer.domain.repository.ConsumerRepository;
 import org.likelion.likelionassignmentcrud.consumer.api.dto.request.ConsumerSaveReqDto;
 import org.likelion.likelionassignmentcrud.consumer.api.dto.response.ConsumerInfoResDto;
 import org.likelion.likelionassignmentcrud.consumer.api.dto.response.ConsumerListResDto;
