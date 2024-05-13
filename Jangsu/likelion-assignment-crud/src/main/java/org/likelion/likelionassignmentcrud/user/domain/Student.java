@@ -5,7 +5,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.likelion.likelionassignmentcrud.rant.domain.Rant;
+import org.likelion.likelionassignmentcrud.rent.domain.Rent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +32,8 @@ public class Student {
        특정 엔티티를 영속상태를 만들기 위해, 부모자식을 한번에 영속화 / 엔티티를 모두 제거할 때 사용(두 기능을 모두 수행함),
        고아가 된 자식객체를 삭제를 허용할 것인지 말것인지 설정)
     */
-    @OneToMany(mappedBy = "rantId", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Rant> rants = new ArrayList<>();
+    @OneToMany(mappedBy = "rentId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Rent> rents = new ArrayList<>();
 
     // 초기화
     @Builder // 빌더 패턴을 이용해 만들 수 있게 지정하는 어노테이션

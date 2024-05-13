@@ -1,4 +1,4 @@
-package org.likelion.likelionassignmentcrud.rant.domain;
+package org.likelion.likelionassignmentcrud.rent.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -10,13 +10,13 @@ import org.likelion.likelionassignmentcrud.user.domain.Student;
 @Entity // 이 클래스가 엔티티임을 알림
 @Getter // get 함수를 사용할 수 있게 함
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // 파라미터가 없는 기본 생성자 생성(기본 생성자를 protected 로 설정)
-public class Rant {
+public class Rent {
 
     @Id // PK 설정
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "rantId")
-    private Long rantId;            // 대출 고유번호, PK
-    private String rantTime;        // 대출한 시간
+    @Column(name = "rentId")
+    private Long rentId;            // 대출 고유번호, PK
+    private String rentTime;        // 대출한 시간
     private String returnTime;      // 반납할 시간
     private String bookName;        //책 이름
 
@@ -26,9 +26,9 @@ public class Rant {
 
     // 초기화
     @Builder // 빌더 패턴을 이용해 만들 수 있게 지정하는 어노테이션
-    private Rant(Long rantId, String rantTime, String returnTime, String bookName, Student student) {
-        this.rantId = rantId;
-        this.rantTime = rantTime;
+    private Rent(Long rentId, String rentTime, String returnTime, String bookName, Student student) {
+        this.rentId = rentId;
+        this.rentTime = rentTime;
         this.returnTime = returnTime;
         this.bookName = bookName;
         this.student = student;
