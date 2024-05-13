@@ -42,9 +42,9 @@ public class OrdersService {
     public OrdersListResDto ordersFindProduct(Long productId) {
         Product product = productRepository.findById(productId)
                 .orElseThrow(null);
-        List<Orders> orderss =  ordersRepository.findByProduct(product);
+        List<Orders> ordersList =  ordersRepository.findByProduct(product);
         List<OrdersInfoResDto> ordersInfoResDtos =
-        orderss.stream()
+        ordersList.stream()
                 .map(OrdersInfoResDto::from)
                 .toList();
 

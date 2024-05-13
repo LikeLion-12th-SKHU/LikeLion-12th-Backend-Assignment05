@@ -33,7 +33,7 @@ public class Product {
     // 1대다(1사용자 - 여러 게시물)
     // mappedBy 주인 설정
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Orders> orderss = new ArrayList<>();
+    private List<Orders> ordersList = new ArrayList<>();
 
     @Builder
     private Product(String name, int price, Part part) { // Builder로만 생성자 접근할 수 있도록 private로 해줌

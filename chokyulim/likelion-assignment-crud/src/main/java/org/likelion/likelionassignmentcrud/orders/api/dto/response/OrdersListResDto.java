@@ -6,11 +6,11 @@ import java.util.List;
 
 @Builder
 public record OrdersListResDto(
-        List<OrdersInfoResDto>  orderss
+        List<OrdersInfoResDto>  ordersList
 ) {
-    public static OrdersListResDto from(List<OrdersInfoResDto> orderss) {
+    public static OrdersListResDto from(List<OrdersInfoResDto> ordersList) {
         return OrdersListResDto.builder()
-                .orderss(orderss)
+                .ordersList(ordersList)
                 .build();
     }
 }
