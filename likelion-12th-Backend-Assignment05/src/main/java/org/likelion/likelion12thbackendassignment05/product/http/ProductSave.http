@@ -1,8 +1,0 @@
-POST http://localhost:8080/product/save
-Content-Type: application/json
-
-{
-  "name": "포도",
-  "price": 3000,
-  "part": "FRUIT"
-}
