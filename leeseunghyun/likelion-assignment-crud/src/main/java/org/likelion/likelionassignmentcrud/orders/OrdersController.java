@@ -29,7 +29,7 @@ public class OrdersController {
     }
 
     @GetMapping("/{foodId}")
-    public ResponseEntity<OrdersListResDto> myOrdersFindAll(@PathVariable("food id") Long foodId) {
+    public ResponseEntity<OrdersListResDto> myOrdersFindAll(@PathVariable("foodId") Long foodId) {
         OrdersListResDto ordersListResDto = ordersService.ordersFindFood(foodId);
         return new ResponseEntity<>(ordersListResDto, HttpStatus.OK);
     }
