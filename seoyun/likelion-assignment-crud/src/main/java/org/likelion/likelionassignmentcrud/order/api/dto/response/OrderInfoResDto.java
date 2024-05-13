@@ -1,20 +1,19 @@
 package org.likelion.likelionassignmentcrud.order.api.dto.response;
+
 import lombok.Builder;
 import org.likelion.likelionassignmentcrud.order.domain.Order;
-import org.likelion.likelionassignmentcrud.order.domain.Part;
 
 @Builder
 public record OrderInfoResDto(
-        Long orderId,
+        Long price,
         String name,
-        Part part
+        String seller
 ) {
     public static OrderInfoResDto from(Order order) {
         return OrderInfoResDto.builder()
-                .orderId(order.getOrderId())
+                .price(order.getPrice())
                 .name(order.getName())
-                .part(order.getPart())
+                .seller(order.getConsumer().getName())
                 .build();
     }
 }
-

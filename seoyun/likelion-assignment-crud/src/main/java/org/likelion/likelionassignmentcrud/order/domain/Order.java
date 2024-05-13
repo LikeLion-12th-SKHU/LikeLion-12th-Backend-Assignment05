@@ -1,14 +1,19 @@
 package org.likelion.likelionassignmentcrud.order.domain;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.*;
-
-import java.util.ArrayList;
-import java.util.List;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.likelion.likelionassignmentcrud.product.domain.Product;
+import org.likelion.likelionassignmentcrud.consumer.api.domain.Consumer;
 
 @Entity
 @Getter
@@ -21,18 +26,17 @@ public class Order {
     @Column(name = "order_id")
     private Long orderId; //주문번호
 
-    private String name; //구매자이름
+    private Long price; //가격
+    private String name; //물건이름
 
-    @Enumerated(EnumType.STRING)
-    private Part part;
-
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Product> products = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "consumer_id")
+    private Consumer consumer;
 
     @Builder
-    private Order(Long orderId, String name, Part part) {
-        this.orderId = orderId;
+    private Order(Long price, String name, Consumer consumer) {
+        this.price = price;
         this.name = name;
-        this.part = part;
+        this.consumer = consumer;
     }
 }

@@ -1,6 +1,7 @@
 package org.likelion.likelionassignmentcrud.order.application;
 
-import java.util.List;
+import org.likelion.likelionassignmentcrud.consumer.api.domain.Consumer;
+import org.likelion.likelionassignmentcrud.consumer.api.domain.repository.ConsumerRepository;
 import org.likelion.likelionassignmentcrud.order.api.dto.request.OrderSaveReqDto;
 import org.likelion.likelionassignmentcrud.order.api.dto.response.OrderInfoResDto;
 import org.likelion.likelionassignmentcrud.order.api.dto.response.OrderListResDto;
@@ -9,42 +10,44 @@ import org.likelion.likelionassignmentcrud.order.domain.repository.OrderReposito
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 public class OrderService {
+    private final ConsumerRepository consumerRepository;
     private final OrderRepository orderRepository;
 
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(ConsumerRepository consumerRepository, OrderRepository orderRepository) {
+        this.consumerRepository = consumerRepository;
         this.orderRepository = orderRepository;
     }
 
     // Create
     @Transactional
     public void orderSave(OrderSaveReqDto orderSaveReqDto) {
+        Consumer consumer = consumerRepository.findById(orderSaveReqDto.consumerId()).orElseThrow(IllegalArgumentException::new);
+
         Order order = Order.builder()
+                .price(orderSaveReqDto.price())
                 .name(orderSaveReqDto.name())
-                .part(orderSaveReqDto.part())
+                .consumer(consumer)                                 
                 .build();
 
         orderRepository.save(order);
     }
 
-    // Read All
-    public OrderListResDto orderFindAll() {
-        List<Order> orders = orderRepository.findAll();
 
+    public OrderListResDto orderFindConsumer(Long consumerId) {
+        Consumer consumer = consumerRepository.findById(consumerId).orElseThrow(IllegalArgumentException::new);
+
+        List<Order> orders = orderRepository.findByOrder(order);
         List<OrderInfoResDto> orderInfoResDtoList = orders.stream()
                 .map(OrderInfoResDto::from)
                 .toList();
 
         return OrderListResDto.from(orderInfoResDtoList);
-    }
-
-    // Read One
-    public OrderInfoResDto orderFindOne(Long orderId) {
-        Order order = orderRepository.findById(orderId).orElseThrow(IllegalArgumentException::new);
-
-        return OrderInfoResDto.from(order);
     }
 
 }
