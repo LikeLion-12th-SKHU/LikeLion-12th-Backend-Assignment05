@@ -1,0 +1,3 @@
+GET  http://localhost:8080/student/students
+
+Student student = new Student(name, age, stuGrade)
