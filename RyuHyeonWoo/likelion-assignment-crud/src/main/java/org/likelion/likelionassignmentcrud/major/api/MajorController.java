@@ -3,6 +3,7 @@ package org.likelion.likelionassignmentcrud.major.api;
 import org.likelion.likelionassignmentcrud.major.api.dto.request.MajorSaveReqDto;
 import org.likelion.likelionassignmentcrud.major.api.dto.response.MajorListResDto;
 import org.likelion.likelionassignmentcrud.major.application.MajorService;
+import org.likelion.likelionassignmentcrud.student.api.dto.request.StudentSaveReqDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,8 @@ public class MajorController {
 
     @PostMapping("/save")
     public ResponseEntity<String> majorSave(@RequestBody MajorSaveReqDto majorSaveReqDto) {
-        majorService.MajorSave(majorSaveReqDto);
-        return new ResponseEntity<>("전공 저장", HttpStatus.OK);
+        majorService.majorSave(majorSaveReqDto);
+        return new ResponseEntity<>("전공 저장", HttpStatus.CREATED);
     }
 
     @GetMapping("/{studentId}")
@@ -28,4 +29,9 @@ public class MajorController {
         MajorListResDto majorListResDto = majorService.majorFindStudent(studentId);
         return new ResponseEntity<>(majorListResDto, HttpStatus.OK);
     }
+
+    //@PutMapping = 데이터 전부 변경
+    //@PatchMapping = 데이터 일부 변경
+
+
 }

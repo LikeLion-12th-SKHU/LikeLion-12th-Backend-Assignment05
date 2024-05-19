@@ -28,13 +28,14 @@ public class MajorService {
     }
 
     @Transactional
-    public void MajorSave(MajorSaveReqDto majorSaveReqDto) {
-        Student student = studentRepository.findById(majorSaveReqDto.StudentId())
+    public void majorSave(MajorSaveReqDto majorSaveReqDto) {
+        Student student = studentRepository.findById(majorSaveReqDto.studentId())
                 .orElseThrow(IllegalArgumentException::new);
 
         Major major = Major.builder()
-                .Name(majorSaveReqDto.Name())
-                .Part(majorSaveReqDto.Part())
+                .name(majorSaveReqDto.name())
+                .part(majorSaveReqDto.part())
+                .student(student)
                 .build();
 
         majorRepository.save(major);

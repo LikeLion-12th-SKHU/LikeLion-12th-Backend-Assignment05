@@ -17,17 +17,17 @@ public class Major {
     @Column(name = "major_id")
     private Long majorId;
 
-    private String Name;
-    private String Part;
+    private String name;
+    private String part;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id")
     private Student student;
 
     @Builder
-    private Major(String Part, String Name, Student student) {
-        this.Part = Part;
-        this.Name = Name;
+    private Major(String name, String part, Student student) {
+        this.name = name;
+        this.part = part;
         this.student = student;
     }
 

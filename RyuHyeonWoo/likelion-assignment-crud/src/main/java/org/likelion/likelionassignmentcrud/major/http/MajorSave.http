@@ -2,7 +2,7 @@ POST http://localhost:8080/major/save
 Content-Type: application/json
 
 {
-  "StudentId": 202417037,
-  "Name": "류현우",
-  "Part": "소프트웨어융합학부"
+  "studentId" : 4,
+  "name" : "류현우",
+  "part" : "소프트웨어융합학부"
 }
