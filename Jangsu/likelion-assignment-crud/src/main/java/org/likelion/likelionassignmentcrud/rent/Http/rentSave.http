@@ -1,0 +1,9 @@
+POST http://localhost:8080/rant/save
+Content-Type: application/json
+
+{
+  "rentId": 1,
+  "rentTime": "20240515",
+  "returnTime": "20240522",
+  "bookName" : "쉽게 풀어쓴 C"
+}
